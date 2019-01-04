@@ -6,6 +6,7 @@ else
 	basepath="$1"
 fi
 
+cd $basepath
 time=`date "+%Y%m%d%H%M%S"`
 package_name="tmp"
 curr_package_name=$package_name"_"$time
