@@ -25,21 +25,15 @@ _EOF_
 
 echo $readme>readme.md
 
-read -d '' gitignore <<-"_EOF_"
-
+(
+cat << EOF
 node_modules/
-
 **/*.DS_Store
-
 npm-debug.log*
-
 yarn-debug.log*
-
 yarn-error.log*
-
-_EOF_
-
-echo $gitignore>".gitignore"
+EOF
+) > ".gitignore"
 
 git add .
 git commit -m 'init from git'
