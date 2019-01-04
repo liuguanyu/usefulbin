@@ -1,15 +1,20 @@
 #! /bin/sh
 
-basepath=$(cd `dirname $0`; pwd)
+if [ -z "$1" ]; then
+	read -p "Please input basepath:" basepath
+else
+	basepath="$1"
+fi
+
 time=`date "+%Y%m%d%H%M%S"`
 package_name="tmp"
 curr_package_name=$package_name"_"$time
 mkdir $curr_package_name
 
-if [ -z "$1" ]; then
+if [ -z "$2" ]; then
 	read -p "Please input git url:" git_loc
 else
-	git_loc="$1"
+	git_loc="$2"
 fi
 
 git clone -n $git_loc $curr_package_name
